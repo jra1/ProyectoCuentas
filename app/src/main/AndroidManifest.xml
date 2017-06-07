@@ -18,7 +18,11 @@
         </activity>
         <activity
             android:name=".CuentaDetail"
-            android:label="@string/title_activity_cuenta_detail"></activity>
+            android:label="@string/title_activity_cuenta_detail"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".NuevaCuenta"
+            android:label="Nueva cuenta"
+            android:parentActivityName=".MainActivity" />
     </application>
 
 </manifest>

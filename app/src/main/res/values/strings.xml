@@ -5,5 +5,6 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Nueva cuenta</string>
     <string name="title_activity_cuenta_detail">Cuenta</string>
+    <string name="title_activity_main2">Main2Activity</string>
 
 </resources>
