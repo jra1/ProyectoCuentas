@@ -5,15 +5,21 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Toast;
 import android.widget.ListView;
+
+import java.util.ArrayList;
+
+import ar.com.tutorialesya.proyectoCuentas.adapters.Adapter_Viajes;
+import ar.com.tutorialesya.proyectoCuentas.model.Viaje;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -23,20 +29,53 @@ public class MainActivity extends ActionBarActivity {
 
     private String[] paises={"Argentina","Chile","Paraguay","Bolivia","Peru",
             "Ecuador","Brasil","Colombia","Venezuela","Uruguay"};
+
+    private ArrayList<Viaje> viajes = new ArrayList<Viaje>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        FloatingActionButton FAB = (FloatingActionButton) findViewById(R.id.fab);
+        FAB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this, NuevaCuenta.class);
+                startActivity(i);
+                //Toast.makeText(MainActivity.this, "NUEVA CUENTA", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        //Crear la BD
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,"bd_cuentas", null, 5);
+        SQLiteDatabase bd = admin.getWritableDatabase();
+        Cursor fila = bd.rawQuery("select * from Viaje", null);
+        Viaje v;
+        if (fila.moveToFirst()) {
+            v = new Viaje(fila.getInt(0), fila.getString(1), fila.getFloat(2), fila.getFloat(3));
+            viajes.add(v);
+            while(fila.moveToNext()){
+                v = new Viaje(fila.getInt(0), fila.getString(1), fila.getFloat(2), fila.getFloat(3));
+                viajes.add(v);
+            }
+        } else
+            Toast.makeText(this, "No hay viajes guardados",
+                    Toast.LENGTH_SHORT).show();
+        bd.close();
+
         lista=(ListView)findViewById(R.id.listaCuentas);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, paises);
+        Adapter_Viajes adapter = new Adapter_Viajes(this, viajes);
         lista.setAdapter(adapter);
+        //ArrayAdapter<Viaje> adapter = new ArrayAdapter<Viaje>(this,android.R.layout.simple_list_item_1, viajes);
+        //lista.setAdapter(adapter);
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View v, int posicion, long id) {
-                Intent i = new Intent(MainActivity.this, CuentaDetail.class);
-                i.putExtra("cuenta", lista.getItemAtPosition(posicion).toString());
-                startActivity(i);
+                //Intent i = new Intent(MainActivity.this, CuentaDetail.class);
+                Intent i2 = new Intent(MainActivity.this, CuentaDetail.class);
+                Viaje vj = (Viaje) lista.getAdapter().getItem(posicion);
+                i2.putExtra("cuenta", vj.getNombreViaje());
+                startActivity(i2);
                 //tv1.setText("Población de "+ lista.getItemAtPosition(posicion) + " es "+ habitantes[posicion]);
             }
         });

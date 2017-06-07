@@ -23,6 +23,25 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper{
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
+        //PARA PRUEBAS
+        db.execSQL("insert into Viaje values (21, 'Lisboa', 425.1, 215.3)");
+        db.execSQL("insert into Viaje values (20, 'Ávila', 120.0, 60.0)");
+        db.execSQL("insert into Viaje values (3, 'Ávila', 120.0, 60.0)");
+        db.execSQL("insert into Viaje values (4, 'Ávila', 120.0, 60.0)");
+        db.execSQL("insert into Viaje values (5, 'Ávila', 120.0, 60.0)");
+        db.execSQL("insert into Viaje values (6, 'Ávila', 120.0, 60.0)");
+        db.execSQL("insert into Viaje values (7, 'Ávila', 120.0, 60.0)");
+        db.execSQL("insert into Viaje values (8, 'Ávila', 120.0, 60.0)");
+        db.execSQL("insert into Viaje values (9, 'Ávila', 120.0, 60.0)");
+        db.execSQL("insert into Viaje values (10, 'Ávila', 120.0, 60.0)");
+        db.execSQL("insert into Viaje values (11, 'Ávila', 120.0, 60.0)");
+        db.execSQL("insert into Viaje values (12, 'Ávila', 120.0, 60.0)");
+        db.execSQL("insert into Viaje values (13, 'Ávila', 120.0, 60.0)");
+        db.execSQL("insert into Viaje values (14, 'Ávila', 120.0, 60.0)");
+        db.execSQL("insert into Viaje values (15, 'Ávila', 120.0, 60.0)");
+        db.execSQL("insert into Viaje values (16, 'Ávila', 120.0, 60.0)");
+        db.execSQL("insert into Viaje values (17, 'Ávila', 120.0, 60.0)");
+        db.execSQL("insert into Viaje values (18, 'Ávila', 120.0, 60.0)");
+        db.execSQL("insert into Viaje values (19, 'Ávila', 120.0, 60.0)");
     }
 }

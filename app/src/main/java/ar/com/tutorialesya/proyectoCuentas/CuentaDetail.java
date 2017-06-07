@@ -3,6 +3,7 @@ package ar.com.tutorialesya.proyectoCuentas;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import ar.com.tutorialesya.proyectoCuentas.R;
 
@@ -15,6 +16,8 @@ public class CuentaDetail extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cuenta_detail);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         costeTotal=(TextView)findViewById(R.id.txtCosteTotal);
 
@@ -35,6 +38,12 @@ public class CuentaDetail extends ActionBarActivity {
         costeTotal.setText("Le deben " + importeReal);
 
          */
+    }
+
+    @Override
+    public void onBackPressed() {
+        //Toast.makeText(getApplicationContext(), " ATRAS ", Toast.LENGTH_SHORT).show();
+        this.finish();
     }
 
 }
