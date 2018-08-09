@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:text="Nombre cuenta:"
-        android:textSize="18sp"
+        android:textSize="18dp"
         tools:layout_constraintTop_creator="1"
         tools:layout_constraintBottom_creator="1"
         app:layout_constraintBottom_toTopOf="@+id/txtNombreCuenta"
@@ -39,14 +39,28 @@
         tools:layout_constraintLeft_creator="1"
         tools:layout_constraintTop_creator="1" />
 
+    <TextView
+        android:id="@+id/lblPersonas"
+        android:layout_width="wrap_content"
+        android:layout_height="22dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="102dp"
+        android:text="Personas:"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintTop_creator="1" />
+
     <ListView
         android:id="@+id/listaPersonas"
         android:layout_width="0dp"
-        android:layout_height="251dp"
+        android:layout_height="100dp"
         tools:layout_constraintTop_creator="1"
         tools:layout_constraintRight_creator="1"
         tools:layout_constraintBottom_creator="1"
-        app:layout_constraintBottom_toTopOf="@+id/btnGuardar"
+        app:layout_constraintBottom_toTopOf="@+id/lblGastos"
         android:layout_marginStart="11dp"
         android:layout_marginEnd="11dp"
         app:layout_constraintRight_toRightOf="parent"
@@ -61,39 +75,71 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/lblPersonas"
+        android:id="@+id/lblGastos"
         android:layout_width="wrap_content"
         android:layout_height="22dp"
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="102dp"
-        android:text="Personas en esta cuenta:"
+        android:layout_marginTop="250dp"
+        android:text="Gastos:"
         android:textSize="18sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintTop_creator="1" />
+        tools:layout_constraintTop_creator="1"
+        app:layout_constraintTop_toBottomOf="@+id/listaPersonas" />
+
+    <ListView
+        android:id="@+id/listaGastos"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toTopOf="@+id/btnAddPersona"
+        android:layout_marginStart="11dp"
+        android:layout_marginEnd="11dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="11dp"
+        app:layout_constraintTop_toBottomOf="@+id/lblGastos"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="11dp"
+        android:layout_marginRight="11dp"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/btnAddPersona"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
-        android:layout_marginBottom="8dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginStart="3dp"
+        android:layout_marginStart="16dp"
         android:onClick="addPersona"
         android:text="Añadir persona"
         app:layout_constraintBottom_toTopOf="@+id/btnGuardar"
-        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintTop_creator="1"
-        app:layout_constraintVertical_bias="0.4" />
+        tools:layout_constraintTop_creator="1" />
+
+    <Button
+        android:id="@+id/btnAddGasto"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginLeft="172dp"
+        android:onClick="addGasto"
+        android:text="Añadir gasto"
+        app:layout_constraintBottom_toTopOf="@+id/btnGuardar"
+        app:layout_constraintLeft_toLeftOf="@+id/btnAddPersona"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintTop_creator="1" />
 
     <Button
         android:id="@+id/btnGuardar"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
-        android:layout_marginBottom="19dp"
+        android:layout_marginBottom="10dp"
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
         android:onClick="guardar"

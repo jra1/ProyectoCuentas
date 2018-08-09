@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.04"
-        android:text="TextView"
+        android:text="Nombre cuenta"
         android:textAlignment="center"
         android:textSize="18sp"
         android:textStyle="bold" />
@@ -19,7 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.04"
-        android:text="TextView"
+        android:text="Coste total"
         android:textAllCaps="true" />
 
     <TextView
@@ -27,5 +27,5 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.04"
-        android:text="TextView" />
+        android:text="Coste persona" />
 </LinearLayout>
