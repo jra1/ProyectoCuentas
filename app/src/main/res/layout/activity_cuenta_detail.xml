@@ -14,7 +14,8 @@
         android:textSize="24sp"
         android:textStyle="bold"
         tools:layout_editor_absoluteX="23dp"
-        tools:layout_editor_absoluteY="16dp" />
+        tools:layout_editor_absoluteY="16dp"
+        android:layout_marginLeft="15dp"/>
 
     <ListView
         android:id="@+id/listaPersonasGastos"
