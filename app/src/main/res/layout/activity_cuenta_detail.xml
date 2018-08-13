@@ -7,20 +7,20 @@
 
     <TextView
         android:id="@+id/txtCosteTotal"
-        android:layout_width="314dp"
+        android:layout_width="362dp"
         android:layout_height="36dp"
+        android:layout_marginLeft="15dp"
         android:text="Coste total:"
         android:textAlignment="center"
         android:textSize="24sp"
         android:textStyle="bold"
         tools:layout_editor_absoluteX="23dp"
-        tools:layout_editor_absoluteY="16dp"
-        android:layout_marginLeft="15dp"/>
+        tools:layout_editor_absoluteY="16dp" />
 
     <ListView
         android:id="@+id/listaPersonasGastos"
-        android:layout_width="309dp"
-        android:layout_height="430dp"
+        android:layout_width="374dp"
+        android:layout_height="458dp"
         tools:layout_editor_absoluteX="28dp"
         tools:layout_editor_absoluteY="65dp" />
 
